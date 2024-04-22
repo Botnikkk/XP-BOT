@@ -290,8 +290,6 @@ async def help(ctx, help = None):
         embed.add_field(name="Roles related commands",value="`n?set_levelrole/n?slr @role level`\n `n?set_rankrole/n?srr @role rank`\n `n?set_noxp/n?snx @role`",inline=False)
         embed.add_field(name="channels related commands",value="`n?set_levelchannel/n?slc #channel`\n `n?set_spamchannel/n?ssc #channel`",inline=False)
         embed.add_field(name="Admin only commands",value="`n?givexp/n?gx @user ammount`\n `n?resetxp/n?rx @user`\n `n?setlevel/n?sl @user level`",inline=False)
-        embed.set_image(url="https://c.tenor.com/5hKPyupKGWMAAAAC/robot-hello.gif")
-        embed.set_footer(text="Nice to meet you!")
     
     elif str(help).lower() not in command_list :
         embed = discord.Embed(
@@ -332,7 +330,6 @@ async def help(ctx, help = None):
             embed.add_field(name=f"Help with the {help} command",value="This command is used to set a specific level of a user, the XP of the user would be adjusted accordingly. This is a admin exclusive command.\nThe syntax for the command is :  `n?setlevel/n?sl @user level`",inline=False)
             
     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar)
-    embed.set_thumbnail(url="https://github.com/Botnikkk/XP-BOT/blob/main/ImpImages/help.gif")
     embed.set_image(url="https://c.tenor.com/5hKPyupKGWMAAAAC/robot-hello.gif")
     embed.set_footer(text="Nice to meet you!")
     await ctx.send(embed=embed)
@@ -382,7 +379,7 @@ async def leaderboard(context):
             break
 
     embed = discord.Embed(title="Leaderboard",description=leaderboard_content,colour=embed_colour)
-    embed.set_image(url="https://github.com/Botnikkk/XP-BOT/blob/main/ImpImages/leaderboard.gif")
+    embed.set_image(url="https://c.tenor.com/JwxZhUN9MKgAAAAM/4%C2%BApr%C3%AAmio-bloxy-anual.gif")
     embed.set_footer(text=f"Top 10 members of {server}")
     await context.send(embed=embed)
 
@@ -619,7 +616,7 @@ async def rank(context:commands.Context, user: discord.Member = None):
             embed.add_field(name="Awarded role", value=total_award_ranks, inline=False)
             embed.set_author(name=mention, icon_url=mention.avatar)
             embed.set_thumbnail(url=mention.avatar)
-            embed.set_image(url="https://github.com/Botnikkk/XP-BOT/blob/main/ImpImages/rank.gif")
+            embed.set_image(url="https://i.imgur.com/cerqOld.gif")
 
             await context.send(embed=embed)
 
