@@ -332,7 +332,7 @@ async def help(ctx, help = None):
             embed.add_field(name=f"Help with the {help} command",value="This command is used to set a specific level of a user, the XP of the user would be adjusted accordingly. This is a admin exclusive command.\nThe syntax for the command is :  `n?setlevel/n?sl @user level`",inline=False)
             
     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar)
-    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/708412887915298910/2840c49ac54bf671deca31f77e14d993.webp?size=1024")
+    embed.set_thumbnail(url="https://github.com/Botnikkk/XP-BOT/blob/main/ImpImages/help.gif")
     embed.set_image(url="https://c.tenor.com/5hKPyupKGWMAAAAC/robot-hello.gif")
     embed.set_footer(text="Nice to meet you!")
     await ctx.send(embed=embed)
@@ -382,7 +382,7 @@ async def leaderboard(context):
             break
 
     embed = discord.Embed(title="Leaderboard",description=leaderboard_content,colour=embed_colour)
-    embed.set_image(url="https://c.tenor.com/JwxZhUN9MKgAAAAM/4%C2%BApr%C3%AAmio-bloxy-anual.gif")
+    embed.set_image(url="https://github.com/Botnikkk/XP-BOT/blob/main/ImpImages/leaderboard.gif")
     embed.set_footer(text=f"Top 10 members of {server}")
     await context.send(embed=embed)
 
@@ -619,7 +619,7 @@ async def rank(context:commands.Context, user: discord.Member = None):
             embed.add_field(name="Awarded role", value=total_award_ranks, inline=False)
             embed.set_author(name=mention, icon_url=mention.avatar)
             embed.set_thumbnail(url=mention.avatar)
-            embed.set_image(url="https://i.imgur.com/cerqOld.gif")
+            embed.set_image(url="https://github.com/Botnikkk/XP-BOT/blob/main/ImpImages/rank.gif")
 
             await context.send(embed=embed)
 
