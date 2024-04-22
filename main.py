@@ -173,10 +173,8 @@ async def update_servers() :
 #startup events initiation
 @bot.event
 async def on_ready():
-    print("My name is {0.user} and i am ready to go".format(bot))
     change_status.start()
     update_servers.start()
-    print("Your bot is ready")
 
 #<------------------------------------------------------------------ STARTUP BOT SETUP ------------------------------------------------------------------>
 
