@@ -1,4 +1,3 @@
-# from dotenv import load_dotenv
 import asyncio
 import random
 import sqlite3
