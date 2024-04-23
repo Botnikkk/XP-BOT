@@ -337,8 +337,6 @@ async def help(ctx, help = None):
 async def leaderboard(context):
 
     server = servers[context.message.guild.name]
-
-    human_members = get_humans(context=context)
     
     conn = sqlite3.connect('user_level_data.sqlite', timeout=10)
     cur = conn.cursor()
@@ -352,8 +350,8 @@ async def leaderboard(context):
 
     for row in top_list:
         user , level = row[0] ,row[1]
-        if list_limit < 11: 
-            if user in human_members : 
+        if list_limit < 11:  
+
                 list_limit = list_limit + 1
 
                 if list_limit == 1:
@@ -370,8 +368,6 @@ async def leaderboard(context):
 
                 elif list_limit > 11:
                     break
-            else : 
-                continue
         else :
             break
 
@@ -542,7 +538,7 @@ async def rank(context:commands.Context, user: discord.Member = None):
     def get_formatted_assets(user = context.author) :
         conn = sqlite3.connect('user_level_data.sqlite', timeout=60)
         cur = conn.cursor()
-        cur.execute(f'SELECT xp, level,rank FROM {server} WHERE user_id = ?',(str(user.id), ))
+        cur.execute(f'SELECT xp, level, rank FROM {server} WHERE user_id = ?',(str(user.id), ))
         data = cur.fetchall()
         data = data[0]
         cur.close()
