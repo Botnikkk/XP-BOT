@@ -292,7 +292,7 @@ async def help(ctx, help = None):
         embed = discord.Embed(
             title="🤖 Help has arrived",
             description="No such command was found ! please enter a valid command.\nMake sure to enter the full name of the command and not the short form.",
-            color=0xb8d4b4)
+            color=embed_colour)
 
     else : 
         help = str(help).lower()
@@ -769,7 +769,7 @@ async def givexp_error(context, error):
 
 
 
-
+0
 
 
 
