@@ -1,147 +1,116 @@
-![Static Badge](https://img.shields.io/badge/build-completed-brightgreen)
+# Discord XP Bot
 
-![Static Badge](https://img.shields.io/badge/status-online-brightgreen)
+[![Python](https://img.shields.io/badge/Python-000000?style=flat&logo=python)](https://www.python.org) [![Discord.py](https://img.shields.io/badge/Discord.py-000000?style=flat&logo=discord)](https://discordpy.readthedocs.io/en/latest/) [![Status](https://img.shields.io/badge/Status-Completed-blue?style=flat)](https://github.com/Botnikkk/XP-BOT)
 
-# Discord XP BOT
+A simple yet powerful XP bot for Discord servers designed to encourage user activity and engagement through a customizable leveling system.
 
+## ✨ Features
 
+* **XP & Leveling:** Automatically tracks user messages and rewards them with experience points.
+* **Leaderboards:** A server-wide leaderboard to foster friendly competition.
+* **Role Rewards:** Automatically assign roles to users when they reach a specific level or rank.
+* **Admin Control:** Admins can manually adjust user XP, set levels, and reset data.
+* **Customization:**
+    * Designate "spam" channels where no XP can be earned.
+    * Blacklist specific roles from gaining XP.
+    * Set a dedicated channel for level-up announcement messages.
 
-A simple XP-based discord bot.
-## Features
+---
 
-- Message tracking and XP rewards.
-- Role assignment based on level.
-- Role assignment based on rank.
-- Server leaderboard display.
-- No XP for spam channel.
-- Blacklist users from earning XP.
-- Admin edits user XP levels.
+## 🤖 Bot Commands
 
-## Commands
+All commands are prefixed with `n?`.
 
-#### Help
-
-```http
-  n?help
+### **`help`**
+Displays the list of available commands.
+```bash
+n?help
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `None`    | `NA` | `NA`|
+### **`rank`**
+Checks the current level, rank, and XP of a user.
+```bash
+n?rank @{user}
+```
+* `@{user}` (Optional): The user whose rank you want to see. If left blank, it will show your own rank.
 
-#### View rank
-
-```http
-  n?rank @{user}
+### **`leaderboard`**
+Displays the server's top 10 users with the most XP.
+```bash
+n?leaderboard
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `user`      | `string` | **Optional**. Username of the user to be viewed |
-
-#### View leaderboard
-
-```http
-  n?leaderboard 
+### **`set_levelrole`**
+Assigns a role to be automatically given when a user reaches a specific level.
+```bash
+n?set_levelrole @{role} {level}
 ```
+* `@{role}` (Required): The role to be awarded.
+* `{level}` (Required): The level required to receive the role.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `None`      | `NA` | `NA` |
-
-#### Set a role for a level
-
-```http
-  n?set_levelrole @{role} {level}
+### **`set_rankrole`**
+Assigns a role to be automatically given when a user reaches a specific rank on the leaderboard.
+```bash
+n?set_rankrole @{role} {rank}
 ```
+* `@{role}` (Required): The role to be awarded.
+* `{rank}` (Required): The leaderboard rank required to receive the role.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `role`      | `string` | **required**. Role being assigned to the level |
-| `level`      | `integer` | **required**. Level to which the role is being assigned|
-
-#### Set a role for a rank
-
-```http
-  n?set_levelrole @{role} {rank}
+### **`set_noxp`**
+Blacklists a role from earning any XP.
+```bash
+n?set_noxp @{role}
 ```
+* `@{role}` (Required): The role to be blacklisted.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `role`      | `string` | **required**. Role being assigned to the level |
-| `rank`      | `integer` | **required**. Rank to which the role is being assigned|
-
-#### Set a role for xp blacklist
-
-```http
-  n?set_noxp @{role}
+### **`set_levelchannel`**
+Sets a specific channel where all "level up" messages will be sent.
+```bash
+n?set_levelchannel #{channel}
 ```
+* `#{channel}` (Required): The channel for level-up announcements.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `role`      | `string` | **required**. Role to be blocked from gaining experience points |
-
-#### Set a channel for level up messages
-
-```http
-  n?set_levelchannel #{channel}
+### **`set_spamchannel`**
+Disables XP gain in a specific channel.
+```bash
+n?set_spamchannel #{channel}
 ```
+* `#{channel}` (Required): The channel to be marked as no-XP.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `channel`      | `string` | **required**. Channel to set for level up messages |
-
-#### Set a channel with no xp
-
-```http
-  n?set_spamchannel #{channel}
+### **`givexp`**
+Manually gives a specified amount of XP to a user.
+```bash
+n?givexp @{user} {amount}
 ```
+* `@{user}` (Required): The user to receive XP.
+* `{amount}` (Required): The amount of XP to give.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `channel`      | `string` | **required**. Channel to set as no xp channel |
-
-
-#### Give a user xp
-
-```http
-  n?givexp @{user} {ammount}
+### **`setlevel`**
+Manually sets a user to a specific level.
+```bash
+n?setlevel @{user} {level}
 ```
+* `@{user}` (Required): The user whose level is being changed.
+* `{level}` (Required): The level to set them to.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `user`      | `string` | **required**. User whom the xp is being given to |
-| `ammount`      | `integer` | **required**. Ammount of xp to be given|
-
-#### Give a user xp
-
-```http
-  n?setlevel @{user} {level}
+### **`resetxp`**
+Resets all XP and level data for a specific user.
+```bash
+n?resetxp @{user}
 ```
+* `@{user}` (Required): The user whose data will be reset.
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `user`      | `string` | **required**. User whose level is to be changed |
-| `level`      | `integer` | **required**. Level to be set|
+---
 
-#### Reset data of a user
+## 🛠️ Tech Stack
 
-```http
-  n?resetxp @{user}
-```
+* **Languages:** **Python**, **SQL**
+* **Libraries:** **Discord.py**, **Asyncio**, **Dotenv**
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `user`      | `string` | **required**. User for whom xp is to be reseted |
+---
 
-## Tech Stack
+## 📧 Contact
 
-**languages:** Python, SQL
+Nikhil Chaudhary - [@botnikkk](https://www.linkedin.com/in/botnikkk) - b.nikk.chd@gmail.com
 
-**Libraries:** Discord.py, Asyncio, Dotenv
-
-
-## Authors
-
-- [@Botnikkk](https://www.github.com/Botnikkk)
-
+Project Link: [https://github.com/Botnikkk/XP-BOT](https://github.com/Botnikkk/XP-BOT)
